@@ -4,6 +4,7 @@ piplien {
             label 'maven'
          }
    }
+   stages {
    stage("Tests") {
         steps {
              sh './mvnw clean test'

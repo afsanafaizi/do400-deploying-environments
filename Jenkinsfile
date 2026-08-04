@@ -33,13 +33,13 @@ pipeline {
                 -Dquarkus.container-image.registry=quay.io \
                 -Dquarkus.container-iamge.group=$QUAY_USR
                 -Dquarkus.container-image.name=do400-deploying-environments \
-                -Dquarkus.container-image.username=$QUAY_USR
-                -Dquarkus.conatiner-image.password=$QUAY_PSW
-                -Dquarkus.container-image.push=true
+                -Dquarkus.container-image.username=$QUAY_USR \
+                -Dquarkus.conatiner-image.password="$QUAY_PSW" \
+                -Dquarkus.container-image.push=true \
             '''
             }
         }
          
-   }
+    }
  }
       

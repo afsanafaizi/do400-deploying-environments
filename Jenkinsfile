@@ -31,10 +31,10 @@ pipeline {
                 -Dquarkus.jib.base-jvm-image=quay.io/redhattraining/do400-java-alpine-openjdk11-jre:latest \
                 -Dquarkus.container-image.build=true \
                 -Dquarkus.container-image.registry=quay.io \
-                -Dquarkus.container-iamge.group=$QUAY_USR \
+                -Dquarkus.container-iamge.group=$afsanafaizi \
                 -Dquarkus.container-image.name=do400-deploying-environments \
-                -Dquarkus.container-image.username=$QUAY_USR \
-                -Dquarkus.conatiner-image.password="$QUAY_PSW" \
+                -Dquarkus.container-image.username=$svkqzd \
+                -Dquarkus.conatiner-image.password="$839fa0200e494e4e9eab" \
                 -Dquarkus.container-image.push=true \
             '''
             }

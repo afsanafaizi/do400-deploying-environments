@@ -27,15 +27,15 @@ pipeline {
                 -Dextensions="kubernetes,container-image-jib"
             '''
             sh '''
-               ./mvnw package -DskipTests \
-               -Dquarkus.jib.base-jvm-image=quay.io/redhattraining/do400-java-alpine-openjdk11-jre:latest \
-               -Dquarkus.container-image.build=true \
-               -Dquarkus.container-image.registry=quay.io \
-               -Dquarkus.container-iamge.group=$QUAY_USR
-               -Dquarkus.container-image.name=do400-deploying-environments \
-               -Dquarkus.container-image.username=$QUAY_USR
-               -Dquarkus.conatiner-image.password=$QUAY_PSW
-               -Dquarkus.container-image.push=true
+                ./mvnw package -DskipTest \
+                -Dquarkus.jib.base-jvm-image=quay.io/redhattraining/do400-java-alpine-openjdk11-jre:latest \
+                -Dquarkus.container-image.build=true \
+                -Dquarkus.container-image.registry=quay.io \
+                -Dquarkus.container-iamge.group=$QUAY_USR
+                -Dquarkus.container-image.name=do400-deploying-environments \
+                -Dquarkus.container-image.username=$QUAY_USR
+                -Dquarkus.conatiner-image.password=$QUAY_PSW
+                -Dquarkus.container-image.push=true
             '''
             }
         }

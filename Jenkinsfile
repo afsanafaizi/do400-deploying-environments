@@ -19,7 +19,7 @@ pipeline {
                 archiveArtifacts 'target/*.jar'
              }
     }
-    stage("stage") {
+    stage('Build Image') {
         environment { QUAY = credentials('QUAY_USER') }
         steps {
             sh '''
@@ -27,7 +27,7 @@ pipeline {
                 -Dextensions="kubernetes,container-image-jib"
             '''
             sh '''
-                ./mvnw package -DskipTest \
+                ./mvnw package -DskipTests \
                 -Dquarkus.jib.base-jvm-image=quay.io/redhattraining/do400-java-alpine-openjdk11-jre:latest \
                 -Dquarkus.container-image.build=true \
                 -Dquarkus.container-image.registry=quay.io \

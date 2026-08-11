@@ -17,16 +17,7 @@ pipeline {
                  -Dquarkus.package.type=uber-jar
                 '''
                 archiveArtifacts 'target/*.jar'
-             }
-    }
-    stage('Test Quay Credentials') {
-        environment { QUAY = credentials('QUAY_USER') }
-        steps {
-            sh
-                echo "Username: $QUAY_USR"
-                curl -s -o /dev/null -w "HTTP Status: %{http_code}\\n" -u "$QUAY_USR:$QUAY_PSW" https://quay.io/api/v1/user/
-            '''
-           }
+            }
     }  
     stage('Build Image') {
         environment { QUAY = credentials('QUAY_USER') }
@@ -46,10 +37,11 @@ pipeline {
                 -Dquarkus.container-image.password="$QUAY_PSW" \
                 -Dquarkus.container-image.push=true
             '''
-               }
-            }
-         }
-      }
-    }
- }
+           } 
+        }
+     }
+  }       
+      
+    
+ 
       

@@ -48,9 +48,10 @@ pipeline {
                 -Dquarkus.container-image.password="$QUAY_PSW" \
                 -Dquarkus.container-image.push=true
             '''
+               }
             }
-        }
-         
+         }
+      }
     }
  }
       
